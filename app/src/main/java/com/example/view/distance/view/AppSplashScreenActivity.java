@@ -20,7 +20,7 @@ public class AppSplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entry);
+        setContentView(R.layout.app_splash_screen_activity);
 
         ButterKnife.bind(this);
 

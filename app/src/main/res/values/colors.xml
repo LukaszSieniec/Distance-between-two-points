@@ -2,5 +2,14 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#B30808</color>
+    <color name="backgroundCardView">#5B6DE0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="gold">#CFB53B</color>
+    <color name="green">#D932CD32</color>
+    <color name="red">#E6FF0000</color>
+    <color name="background">#66D5D0D0</color>
+    <color name="dark_blue">#3023AE</color>
+    <color name="purple">#c86dd7</color>
 </resources>

@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -46,7 +46,7 @@
             android:paddingBottom="20dp">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textViewFirstLatitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -56,7 +56,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/editTextFirstLatitude"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -72,7 +72,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/textViewFirstLongitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -83,7 +83,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editText6"
+                android:id="@+id/editTextFirstLongitude"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -101,7 +101,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/textViewSecondLatitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -112,7 +112,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editText7"
+                android:id="@+id/editTextSecondLatitude"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -128,7 +128,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/textViewSecondLongitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -139,7 +139,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editText8"
+                android:id="@+id/editTextSecondLongitude"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -163,7 +163,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button4"
+                    android:id="@+id/buttonCalculate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -177,7 +177,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/buttonReset"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -205,36 +205,36 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/textViewStart"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableBottom="@drawable/start"
             android:gravity="center"
-            android:text="Łęczna"
+            android:text="?"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/imageViewArrows"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/ic_compare_arrows_black" />
 
         <TextView
-            android:id="@+id/textView23"
+            android:id="@+id/textViewFinish"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableBottom="@drawable/finish"
             android:gravity="center"
-            android:text="Warszawa"
+            android:text="?"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -242,14 +242,13 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/textViewDistance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:gravity="center"
-        android:text="Distance: 195.9 km"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         android:textStyle="bold"

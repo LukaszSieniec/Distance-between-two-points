@@ -27,7 +27,6 @@ public class RemoteRepository {
                 .enqueue(new Callback<AddressResponse>() {
                     @Override
                     public void onResponse(Call<AddressResponse> call, Response<AddressResponse> response) {
-                        Log.i("Test", "onRespone response: " + response);
 
                         if(response.body() != null) {
                             data.setValue(response.body());

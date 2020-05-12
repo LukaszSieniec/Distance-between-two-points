@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onChanged(AddressResponse addressResponse) {
 
-                    Log.i("Test", addressResponse.getCity());
+                    Log.i("Test", String.valueOf(addressResponse.getAddress().getCity()));
                 }
             });
         }

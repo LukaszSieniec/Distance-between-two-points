@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitRequest {
 
     private static Retrofit retrofit;
-    private static final String BASE_URL = "";
+    private static final String BASE_URL = "https://nominatim.openstreetmap.org/";
 
     public static Retrofit getInstance() {
         if(retrofit == null) {

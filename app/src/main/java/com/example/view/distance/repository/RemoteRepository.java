@@ -38,6 +38,7 @@ public class RemoteRepository {
                         data.setValue(null);
                     }
                 });
+
         return data;
     }
 }

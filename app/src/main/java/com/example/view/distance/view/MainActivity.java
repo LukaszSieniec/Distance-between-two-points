@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.view.distance.R;
 import com.example.view.distance.model.AddressResponse;
+import com.example.view.distance.model.Point;
 import com.example.view.distance.viewmodel.ViewModelMainActivity;
 
 import butterknife.BindView;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView textViewDistance;
 
     private ViewModelMainActivity viewModelMainActivity;
+    private Point firstPoint, secondPoint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonCalculate.setOnClickListener(this);
         buttonReset.setOnClickListener(this);
+
+        getAddress();
     }
 
     @Override
@@ -89,14 +93,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         } else {
 
-            viewModelMainActivity = new ViewModelProvider(this).get(ViewModelMainActivity.class);
-            viewModelMainActivity.getAddressResponse().observe(this, new Observer<AddressResponse>() {
-                @Override
-                public void onChanged(AddressResponse addressResponse) {
+            firstPoint = new Point(Double.parseDouble(firstLatitude), Double.parseDouble(firstLongitude));
+            secondPoint = new Point(Double.parseDouble(secondLatitude), Double.parseDouble(secondLongitude));
 
-                    Log.i("Test", String.valueOf(addressResponse.getAddress().getCity()));
-                }
-            });
+            viewModelMainActivity.setFirstPoint(firstPoint);
+            viewModelMainActivity.setSecondPoint(secondPoint);
         }
+    }
+
+    private void getAddress() {
+        viewModelMainActivity = new ViewModelProvider(this).get(ViewModelMainActivity.class);
+        viewModelMainActivity.getAddressResponse().observe(this, new Observer<AddressResponse>() {
+            @Override
+            public void onChanged(AddressResponse addressResponse) {
+
+                Log.i("Test", String.valueOf(addressResponse.getAddress().getCity()));
+            }
+        });
     }
 }

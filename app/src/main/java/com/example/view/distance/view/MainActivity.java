@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +16,8 @@ import com.example.view.distance.R;
 import com.example.view.distance.model.AddressResponse;
 import com.example.view.distance.model.Point;
 import com.example.view.distance.viewmodel.ViewModelMainActivity;
+
+import java.text.DecimalFormat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView textViewDistance;
 
     private ViewModelMainActivity viewModelMainActivity;
+    private DecimalFormat decimalFormat = new DecimalFormat("0.#");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +102,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             viewModelMainActivity.updateFirstAddress(firstPoint);
             viewModelMainActivity.updateSecondAddress(secondPoint);
+
+            Location firstLocation = new Location("");
+            firstLocation.setLatitude(firstPoint.getLatitude());
+            firstLocation.setLongitude(firstPoint.getLongitude());
+
+            Location secondLocation = new Location("");
+            secondLocation.setLatitude(secondPoint.getLatitude());
+            secondLocation.setLongitude(secondPoint.getLongitude());
+
+            double distance = firstLocation.distanceTo(secondLocation);
+            textViewDistance.setText("Distance in kilometers: " + decimalFormat.format(distance/1000) + "\n"
+                    + "Distance in meters: " + decimalFormat.format(distance));
         }
     }
 
@@ -108,7 +123,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onChanged(AddressResponse addressResponse) {
 
-                textViewStart.setText(addressResponse.getAddress().getCity());
+                if((addressResponse != null) && (addressResponse.getAddress() != null) && ((!addressResponse.getAddress().getCountry().equals(""))
+                        || (addressResponse.getAddress().getCity() != null))) {
+                    textViewStart.setText(addressResponse.getAddress().getCountry() + "\n" + addressResponse.getAddress().getCity());
+
+                } else {
+                    textViewStart.setText("?");
+                }
             }
         });
     }
@@ -119,7 +140,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onChanged(AddressResponse addressResponse) {
 
-                textViewFinish.setText(addressResponse.getAddress().getCity());
+                if((addressResponse != null) && (addressResponse.getAddress() != null) && ((!addressResponse.getAddress().getCountry().equals(""))
+                        || (addressResponse.getAddress().getCity() != null))) {
+                    textViewFinish.setText(addressResponse.getAddress().getCountry() + "\n" + addressResponse.getAddress().getCity());
+
+                } else {
+                    textViewFinish.setText("?");
+                }
             }
         });
     }

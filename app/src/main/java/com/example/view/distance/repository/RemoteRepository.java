@@ -1,11 +1,8 @@
 package com.example.view.distance.repository;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.view.distance.model.Address;
 import com.example.view.distance.model.AddressResponse;
 import com.example.view.distance.retrofit.ApiRequest;
 import com.example.view.distance.retrofit.RetrofitRequest;

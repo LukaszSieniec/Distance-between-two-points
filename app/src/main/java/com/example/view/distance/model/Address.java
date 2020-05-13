@@ -3,15 +3,15 @@ package com.example.view.distance.model;
 public class Address {
 
     private int house_number;
-    private String road;
-    private String town;
-    private String city;
-    private String county;
-    private String state_district;
-    private String state;
-    private String postcode;
-    private String country;
-    private String country_code;
+    private String road = "";
+    private String town = "";
+    private String city = "";
+    private String county = "";
+    private String state_district = "";
+    private String state = "";
+    private String postcode = "";
+    private String country = "";
+    private String country_code = "";
 
     public int getHouse_number() {
         return house_number;

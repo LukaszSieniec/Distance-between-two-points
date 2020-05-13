@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onChanged(AddressResponse addressResponse) {
 
                 if((addressResponse != null) && (addressResponse.getAddress() != null) && ((!addressResponse.getAddress().getCountry().equals(""))
-                        || (addressResponse.getAddress().getCity() != null))) {
+                        || (!addressResponse.getAddress().getCity().equals("")))) {
                     textViewStart.setText(addressResponse.getAddress().getCountry() + "\n" + addressResponse.getAddress().getCity());
 
                 } else {
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onChanged(AddressResponse addressResponse) {
 
                 if((addressResponse != null) && (addressResponse.getAddress() != null) && ((!addressResponse.getAddress().getCountry().equals(""))
-                        || (addressResponse.getAddress().getCity() != null))) {
+                        || (!addressResponse.getAddress().getCity().equals("")))) {
                     textViewFinish.setText(addressResponse.getAddress().getCountry() + "\n" + addressResponse.getAddress().getCity());
 
                 } else {

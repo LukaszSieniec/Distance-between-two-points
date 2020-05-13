@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.location.Location;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.view.distance.R;
+import com.example.view.distance.filters.InputFilterCoordinates;
 import com.example.view.distance.model.AddressResponse;
 import com.example.view.distance.model.Point;
 import com.example.view.distance.viewmodel.ViewModelMainActivity;
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+        setFilter();
 
         buttonCalculate.setOnClickListener(this);
         buttonReset.setOnClickListener(this);
@@ -149,5 +152,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+    }
+
+    private void setFilter() {
+        editTextFirstLatitude.setFilters(new InputFilter[] {new InputFilterCoordinates(2, 10)});
+        editTextFirstLongitude.setFilters(new InputFilter[] {new InputFilterCoordinates(2, 10)});
+        editTextSecondLatitude.setFilters(new InputFilter[] {new InputFilterCoordinates(2, 10)});
+        editTextSecondLongitude.setFilters(new InputFilter[] {new InputFilterCoordinates(2, 10)});
     }
 }

@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.view.distance.model.Address;
 import com.example.view.distance.model.AddressResponse;
 import com.example.view.distance.retrofit.ApiRequest;
 import com.example.view.distance.retrofit.RetrofitRequest;
@@ -16,12 +17,14 @@ import retrofit2.Response;
 public class RemoteRepository {
     private ApiRequest apiRequest;
 
+    private MutableLiveData<AddressResponse> firstAddress = new MutableLiveData<>();
+    private MutableLiveData<AddressResponse> secondAddress = new MutableLiveData<>();
+
     public RemoteRepository() {
         apiRequest = RetrofitRequest.getInstance().create(ApiRequest.class);
     }
 
-    public LiveData<AddressResponse> getAddress(double query1, double query2) {
-        final MutableLiveData<AddressResponse> data = new MutableLiveData<>();
+    public LiveData<AddressResponse> getFirstAddress(double query1, double query2) {
 
         apiRequest.getAddress(query1, query2)
                 .enqueue(new Callback<AddressResponse>() {
@@ -29,16 +32,36 @@ public class RemoteRepository {
                     public void onResponse(Call<AddressResponse> call, Response<AddressResponse> response) {
 
                         if(response.body() != null) {
-                            data.setValue(response.body());
+                            firstAddress.setValue(response.body());
                         }
                     }
 
                     @Override
                     public void onFailure(Call<AddressResponse> call, Throwable t) {
-                        data.setValue(null);
+                        firstAddress.setValue(null);
                     }
                 });
 
-        return data;
+        return firstAddress;
+    }
+
+    public LiveData<AddressResponse> getSecondAddress(double query1, double query2) {
+
+        apiRequest.getAddress(query1, query2)
+                .enqueue(new Callback<AddressResponse>() {
+                    @Override
+                    public void onResponse(Call<AddressResponse> call, Response<AddressResponse> response) {
+                        if(response.body() != null) {
+                            secondAddress.setValue(response.body());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<AddressResponse> call, Throwable t) {
+                        secondAddress.setValue(null);
+                    }
+                });
+
+        return secondAddress;
     }
 }

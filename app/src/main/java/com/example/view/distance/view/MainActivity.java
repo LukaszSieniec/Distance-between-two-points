@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView textViewDistance;
 
     private ViewModelMainActivity viewModelMainActivity;
-    private Point firstPoint, secondPoint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonCalculate.setOnClickListener(this);
         buttonReset.setOnClickListener(this);
 
-        getAddress();
+        viewModelMainActivity = new ViewModelProvider(this).get(ViewModelMainActivity.class);
+        getFirstAddress();
+        getSecondAddress();
     }
 
     @Override
@@ -93,21 +94,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         } else {
 
-            firstPoint = new Point(Double.parseDouble(firstLatitude), Double.parseDouble(firstLongitude));
-            secondPoint = new Point(Double.parseDouble(secondLatitude), Double.parseDouble(secondLongitude));
+            Point firstPoint = new Point(Double.parseDouble(firstLatitude), Double.parseDouble(firstLongitude));
+            Point secondPoint = new Point(Double.parseDouble(secondLatitude), Double.parseDouble(secondLongitude));
 
-            viewModelMainActivity.setFirstPoint(firstPoint);
-            viewModelMainActivity.setSecondPoint(secondPoint);
+            viewModelMainActivity.updateFirstAddress(firstPoint);
+            viewModelMainActivity.updateSecondAddress(secondPoint);
         }
     }
 
-    private void getAddress() {
-        viewModelMainActivity = new ViewModelProvider(this).get(ViewModelMainActivity.class);
-        viewModelMainActivity.getAddressResponse().observe(this, new Observer<AddressResponse>() {
+    private void getFirstAddress() {
+
+        viewModelMainActivity.getFirstAddress().observe(this, new Observer<AddressResponse>() {
             @Override
             public void onChanged(AddressResponse addressResponse) {
 
-                Log.i("Test", String.valueOf(addressResponse.getAddress().getCity()));
+                textViewStart.setText(addressResponse.getAddress().getCity());
+            }
+        });
+    }
+
+    private void getSecondAddress() {
+
+        viewModelMainActivity.getSecondAddress().observe(this, new Observer<AddressResponse>() {
+            @Override
+            public void onChanged(AddressResponse addressResponse) {
+
+                textViewFinish.setText(addressResponse.getAddress().getCity());
             }
         });
     }

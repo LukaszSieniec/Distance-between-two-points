@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="oneIntuit"> @dimen/_1sdp</dimen>                             <!-- 1dp-->
+    <dimen name="twoIntuit"> @dimen/_2sdp</dimen>                             <!-- 2dp-->
+    <dimen name="threeIntuit"> @dimen/_2sdp</dimen>                           <!-- 3dp-->
+    <dimen name="fourIntuit"> @dimen/_3sdp</dimen>                            <!-- 4dp-->
+    <dimen name="fiveIntuit"> @dimen/_4sdp</dimen>                            <!-- 5dp-->
+    <dimen name="sixIntuit"> @dimen/_5sdp</dimen>                             <!-- 6dp-->
+    <dimen name="sevenIntuit"> @dimen/_5sdp</dimen>                           <!-- 7dp-->
+    <dimen name="eightIntuit"> @dimen/_6sdp</dimen>                           <!-- 8dp-->
+    <dimen name="nineIntuit"> @dimen/_7sdp</dimen>                            <!-- 9dp-->
+    <dimen name="tenIntuit"> @dimen/_8sdp</dimen>                             <!-- 10dp-->
+    <dimen name="elevenIntuit"> @dimen/_9sdp</dimen>                          <!-- 11dp-->
+    <dimen name="twelveIntuit"> @dimen/_9sdp</dimen>                          <!-- 12dp-->
+    <dimen name="thirteenIntuit"> @dimen/_10sdp</dimen>                       <!-- 13dp-->
+    <dimen name="fourteenIntuit"> @dimen/_11sdp</dimen>                       <!-- 14dp-->
+    <dimen name="fifteenIntuit"> @dimen/_12sdp</dimen>                        <!-- 15dp-->
+    <dimen name="sixteenIntuit"> @dimen/_12sdp</dimen>                        <!-- 16dp-->
+    <dimen name="seventeenIntuit"> @dimen/_13sdp</dimen>                      <!-- 17dp-->
+    <dimen name="eighteenIntuit"> @dimen/_14sdp</dimen>                       <!-- 18dp-->
+    <dimen name="twentyIntuit"> @dimen/_15sdp</dimen>                         <!-- 20dp-->
+    <dimen name="twentyTwoIntuit"> @dimen/_17sdp</dimen>                      <!-- 22dp-->
+    <dimen name="twentyFourIntuit"> @dimen/_18sdp</dimen>                     <!-- 24dp-->
+    <dimen name="twentySixIntuit"> @dimen/_20sdp</dimen>                      <!-- 26dp-->
+    <dimen name="twentyEightIntuit"> @dimen/_22sdp</dimen>                    <!-- 28dp-->
+    <dimen name="thirtyIntuit"> @dimen/_23sdp</dimen>                         <!-- 30dp-->
+    <dimen name="thirtyTwoIntuit"> @dimen/_25sdp</dimen>                      <!-- 32dp-->
+    <dimen name="thirtyFiveIntuit"> @dimen/_27sdp</dimen>                     <!-- 35dp-->
+    <dimen name="fortyIntuit"> @dimen/_31sdp</dimen>                          <!-- 40dp-->
+</resources>
